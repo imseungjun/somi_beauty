@@ -1,0 +1,342 @@
+@import "tailwindcss";
+
+@theme {
+  --font-family-sans: "Noto Sans KR", system-ui, sans-serif;
+  --font-family-display: "Cormorant Garamond", Georgia, serif;
+
+  /* 팔레트 1: 메인 (크림·블러시·로즈·샴페인 골드) */
+  --color-somi-bg: #f7f2ec;
+  --color-somi-ivory: #f7f2ec;
+  --color-somi-blush: #f3e1e1;
+  --color-somi-pink: #ebc7c4;
+  --color-somi-rose: #ddb3b5;
+  --color-somi-mauve: #9e7378;
+  --color-somi-text: #6a555a;
+  --color-somi-muted: #9e8788;
+  --color-somi-gold: #ddc3b5;
+
+  /* 팔레트 2: 포인트·호버 */
+  --color-somi-accent: #e8adbf;
+  --color-somi-accent-soft: #edd3dd;
+  --color-somi-accent-dust: #eac3d2;
+  --color-somi-accent-deep: #dfb7bb;
+}
+
+@layer base {
+  /* 창 너비·줌에 맞춰 rem 기준 살짝 유동 (본문·버튼 등 전반) */
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+    background-color: var(--color-somi-bg);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    overflow-x: clip;
+    font-size: clamp(14px, 0.28vw + 13.2px, 18px);
+  }
+  body {
+    font-family: var(--font-family-sans);
+    color: var(--color-somi-text);
+    background-color: var(--color-somi-bg);
+    overflow-x: clip;
+    min-width: 0;
+    max-width: 100%;
+  }
+  main {
+    min-width: 0;
+  }
+  section {
+    min-width: 0;
+  }
+  img,
+  video {
+    max-width: 100%;
+  }
+}
+
+@layer utilities {
+  /* 섹션 가로 패딩: 뷰포트·줌에 맞춰 유동 + 세이프 영역 */
+  .padding-page-x {
+    padding-left: max(env(safe-area-inset-left, 0px), clamp(1rem, 3.5vw, 2.5rem));
+    padding-right: max(env(safe-area-inset-right, 0px), clamp(1rem, 3.5vw, 2.5rem));
+  }
+  @media (min-width: 768px) {
+    .padding-page-x {
+      padding-left: max(env(safe-area-inset-left, 0px), clamp(1.5rem, 4vw, 3rem));
+      padding-right: max(env(safe-area-inset-right, 0px), clamp(1.5rem, 4vw, 3rem));
+    }
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .touch-action-manipulation {
+    touch-action: manipulation;
+  }
+
+  /* 풀폭 섹션 텍스트 열: px-6 / md:px-14 / lg:px-16 + 세이프 영역 */
+  .padding-section-x {
+    padding-left: max(1.5rem, env(safe-area-inset-left, 0px));
+    padding-right: max(1.5rem, env(safe-area-inset-right, 0px));
+  }
+  @media (min-width: 768px) {
+    .padding-section-x {
+      padding-left: max(3.5rem, env(safe-area-inset-left, 0px));
+      padding-right: max(3.5rem, env(safe-area-inset-right, 0px));
+    }
+  }
+  @media (min-width: 1024px) {
+    .padding-section-x {
+      padding-left: max(4rem, env(safe-area-inset-left, 0px));
+      padding-right: max(4rem, env(safe-area-inset-right, 0px));
+    }
+  }
+
+  /* 에디토리얼·브랜드 스토리: px-6 / md:px-16 + 세이프 영역 */
+  .padding-editorial-x {
+    padding-left: max(1.5rem, env(safe-area-inset-left, 0px));
+    padding-right: max(1.5rem, env(safe-area-inset-right, 0px));
+  }
+  @media (min-width: 768px) {
+    .padding-editorial-x {
+      padding-left: max(4rem, env(safe-area-inset-left, 0px));
+      padding-right: max(4rem, env(safe-area-inset-right, 0px));
+    }
+  }
+
+  /* 스킨케어 카드 텍스트: px-8 / md:px-12 + 세이프 영역 */
+  .padding-skincare-card-x {
+    padding-left: max(2rem, env(safe-area-inset-left, 0px));
+    padding-right: max(2rem, env(safe-area-inset-right, 0px));
+  }
+  @media (min-width: 768px) {
+    .padding-skincare-card-x {
+      padding-left: max(3rem, env(safe-area-inset-left, 0px));
+      padding-right: max(3rem, env(safe-area-inset-right, 0px));
+    }
+  }
+
+  .font-display {
+    font-family: var(--font-family-display), Georgia, serif;
+  }
+
+  /* 히어로 왼쪽 컬럼: 폭 기준으로 cqi 단위 사용 */
+  .hero-text-col {
+    min-width: 0;
+    container-type: inline-size;
+  }
+
+  /* 상단 리본 (Maison / Royal) */
+  .royal-ribbon {
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-somi-gold) 35%, transparent),
+      color-mix(in srgb, var(--color-somi-accent-dust) 25%, transparent),
+      color-mix(in srgb, var(--color-somi-gold) 35%, transparent)
+    );
+    border-bottom: 1px solid color-mix(in srgb, var(--color-somi-gold) 55%, white);
+  }
+
+  /* 히어로 영상: 이중 액자 */
+  .hero-royal-frame {
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--color-somi-gold) 70%, white),
+      0 0 0 4px color-mix(in srgb, var(--color-somi-ivory) 100%, transparent),
+      0 0 0 5px color-mix(in srgb, var(--color-somi-gold) 45%, white),
+      0 clamp(12px, 2.5vw, 28px) clamp(28px, 4vw, 48px) color-mix(in srgb, var(--color-somi-mauve) 18%, transparent);
+    max-height: min(88vh, 40rem);
+  }
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition:
+    opacity 0.75s ease,
+    transform 0.75s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hero: subtle Ken Burns */
+@keyframes hero-soft-zoom {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.hero-image-animate img,
+.hero-image-animate video {
+  animation: hero-soft-zoom 12s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-image-animate img,
+  .hero-image-animate video {
+    animation: none;
+  }
+  #sakura-layer {
+    display: none !important;
+  }
+}
+
+/* 홈 벚꽃잎 배경 (index 전용 #sakura-layer) */
+#sakura-layer .sakura-petal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--size, 14px);
+  height: calc(var(--size, 14px) * 1.35);
+  color: hsl(var(--petal-h, 330) 58% 78%);
+  opacity: 1;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 1px 1px color-mix(in srgb, var(--color-somi-mauve) 12%, transparent));
+  animation: sakura-fall var(--dur, 38s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+#sakura-layer .sakura-petal svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes sakura-fall {
+  0% {
+    transform: translate3d(var(--start-x), -14vh, 0) rotate(var(--r0, 0deg)) scale(var(--scale, 1));
+    opacity: 0;
+  }
+  7% {
+    opacity: var(--opacity-mid, 0.78);
+  }
+  78% {
+    opacity: 0.42;
+  }
+  100% {
+    transform: translate3d(calc(var(--start-x) + var(--drift, 0vw)), 108vh, 0) rotate(var(--r1, 360deg))
+      scale(var(--scale, 1));
+    opacity: 0;
+  }
+}
+
+/* 벚꽃 레이어는 본문·헤더보다 뒤 (index에서 main/footer에 z-[1]) */
+#sakura-layer {
+  z-index: 0;
+}
+
+/* Bestseller mascot */
+.bestseller-mascot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 25;
+  width: 100px;
+  height: auto;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  background: transparent;
+  transition:
+    left 2.4s ease-in-out,
+    top 2.4s ease-in-out,
+    opacity 0.45s ease,
+    transform 0.5s cubic-bezier(0.33, 1.45, 0.52, 1);
+}
+
+.bestseller-mascot.is-knock-impulse {
+  transition:
+    left 2.4s ease-in-out,
+    top 2.4s ease-in-out,
+    opacity 0.45s ease,
+    transform 0.12s ease-out;
+}
+
+.bestseller-mascot.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.bestseller-mascot:focus-visible {
+  outline: 2px solid rgba(179, 120, 138, 0.55);
+  outline-offset: 4px;
+  border-radius: 9999px;
+}
+
+.bestseller-mascot-img {
+  display: block;
+  width: 100px;
+  height: auto;
+  user-select: none;
+  background: transparent;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(184, 137, 149, 0.22));
+}
+
+.bestseller-mascot.is-active .bestseller-mascot-img:not(.is-jumping) {
+  animation: mascot-float 2.4s ease-in-out infinite;
+}
+
+@keyframes mascot-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1.5deg) scale(1);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1.5deg) scale(1.04);
+  }
+}
+
+.bestseller-mascot-img.is-jumping {
+  animation: mascot-jump 0.85s ease-in-out 1;
+}
+
+@keyframes mascot-jump {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  35% {
+    transform: translateY(-20px) scale(1.04);
+  }
+  55% {
+    transform: translateY(-22px) scale(1.02);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 767px) {
+  .bestseller-mascot {
+    width: 76px;
+  }
+
+  .bestseller-mascot-img {
+    width: 76px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bestseller-mascot,
+  .bestseller-mascot.is-active {
+    display: none;
+  }
+
+  .bestseller-mascot-img {
+    animation: none !important;
+  }
+}

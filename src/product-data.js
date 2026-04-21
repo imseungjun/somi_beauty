@@ -1,0 +1,437 @@
+/**
+ * 제품 상세 페이지 데이터. slug는 URL ?slug= 값과 일치합니다.
+ */
+export const products = {
+  "pdrn-essence": {
+    slug: "pdrn-essence",
+    seoTitle: "소미뷰티 올인원 PDRN 에센스 | SOMI BEAUTY",
+    seoDescription:
+      "단 한 번의 사용으로 증명되는 압도적인 탄력과 수분 에너지. Premium PDRN, Graphene DDS, Clean Energy.",
+    title: "소미뷰티 올인원 PDRN 에센스",
+    volume: "50ml",
+    heroTagline: "단 한 번의 사용으로 증명되는 압도적인 탄력과 수분 에너지",
+    heroImage: "/images/product-essence-hero.png",
+    fallbackHeroImage: "/images/bestseller-essence.png",
+    cardImage: "/images/bestseller-essence.png",
+    categoryLabel: "ESSENCE",
+    coreTech: [
+      {
+        title: "Premium PDRN (저분자 연어 DNA)",
+        body:
+          "인간의 DNA 구조와 가장 유사한 PDRN을 저분자화하여 흡수율을 극대화했습니다. 피부 자생력을 높여 탄탄한 기초를 만들어줍니다.",
+      },
+      {
+        title: "그래핀 약물전달시스템 (Graphene DDS)",
+        body:
+          "꿈의 신소재 그래핀 기술을 접목하여, 유효 성분이 증발하지 않고 피부 진피층까지 정밀하게 도달하도록 돕습니다.",
+      },
+      {
+        title: "Clean Energy",
+        body:
+          "해발 750고지 포항 산죽농원에서 직접 재배한 유기농 원재료(산양삼, 비수리 등)를 소미뷰티만의 특허 공법으로 추출하여 담았습니다.",
+      },
+    ],
+    clinical: {
+      title: "숫자로 증명된 놀라운 변화 (Clinical Result)",
+      institute: "한국피부과학연구원 인체적용시험 완료",
+      headline: "1회 사용 직후의 기적",
+      bullets: [
+        "피부 수분 개선율 243.26% 상승",
+        "피부 탄력 개선율 2.32% 상승",
+        "p-value < 0.001 (최고 등급의 과학적 유의성 입증)",
+        "자극 지수 0.00 (무자극 판정)",
+      ],
+    },
+    recommended: [
+      "복잡한 단계 없이 하나로 완벽한 케어를 원하는 분",
+      "푸석하고 탄력을 잃은 피부가 고민이신 분",
+      "시술 후 예민해진 피부에 진정과 재생이 필요하신 분",
+      "끈적임 없이 깊은 보습감을 느끼고 싶은 분",
+    ],
+    ingredients: {
+      title: "Main Ingredients",
+      intro: "미백, 주름개선 이중 기능성",
+      items: [
+        {
+          title: "아데노신 & 나이아신아마이드",
+          body: "주름 개선 및 투명한 피부 톤업",
+        },
+        {
+          title: "베타글루칸 & 커큐민",
+          body: "피부 진정 및 강력한 항산화 작용",
+        },
+        {
+          title: "마린 콜라겐 & 펩타이드",
+          body: "무너진 피부 장벽 재건 및 탄력 강화",
+        },
+      ],
+    },
+    closingLines: [
+      "가장 진보된 기술로 빚어낸 미니멀 럭셔리,",
+      "오늘 당신의 피부에 '소미'를 더하세요.",
+    ],
+    howToUse:
+      "세안 후 적당량을 덜어 얼굴 전체에 부드럽게 펴 바른 뒤, 가볍게 두드려 흡수시켜 줍니다. 나노젯 기계와 함께 사용 시 더욱 극대화된 효과를 경험하실 수 있습니다.",
+  },
+
+  "pdrn-cream": {
+    slug: "pdrn-cream",
+    seoTitle: "소미 뷰티 PDRN 크림 | SOMI BEAUTY",
+    seoDescription:
+      "완벽한 아름다움의 마침표, 피부탄력의 최종 방어막. PDRN × Graphene DDS 더블 액션. 소미 에센스·앰플과 함께하는 루틴 완성.",
+    title: "PDRN Cream",
+    volume: "50ml",
+    heroTagline: "완벽한 아름다움의 마침표, 피부탄력의 최종 방어막",
+    heroTaglineLines: ["완벽한 아름다움의 마침표,", "피부탄력의 최종 방어막"],
+    pageHero: {
+      brandLine: "[소미 뷰티 PDRN 크림]",
+      quote: "피부 속에 채운 영양, 증발시키지 마세요.",
+    },
+    storyIntro: [
+      "소미 에센스로 수분 길을 열고, 초고농축 PDRN 앰플로 코어를 재생했다면, 이제 그 모든 유효 성분을 피부 깊숙이 가두고 밤새 지켜낼 차례입니다. 소미 PDRN 크림은 단순히 바르는 크림을 넘어, 피부 스스로의 재생 루틴을 완성하는 '피부 탄력의 최종 방어막'입니다.",
+    ],
+    coreTechSectionTitle: "PDRN x 그래핀 DDS의 더블 액션",
+    coreTechSubtitle: "피부 코어를 촘촘하게 감싸는 강력한 보습 막",
+    heroImage: "/images/bestseller-cream.png",
+    cardImage: "/images/bestseller-cream.png",
+    categoryLabel: "CREAM",
+    coreTech: [
+      {
+        title: "프리미엄 PDRN",
+        body:
+          "에센스와 앰플에서 증명된 브랜드 핵심 성분인 PDRN을 크림 제형에 최적화된 농도로 함유하여, 촘촘한 피부 코어 유지를 돕고 밤새 지속적인 재생 에너지를 공급합니다.",
+      },
+      {
+        title: "그래핀 약물전달시스템 (Graphene DDS)",
+        body:
+          "꿈의 신소재 그래핀 기술이 적용된 이 크림은, 피부 표면에 미세한 '그래핀 막'을 형성하여 에센스와 앰플의 유효 성분이 증발하지 않고 진피층 깊숙이 온전히 전달되도록 돕습니다. 또한, 외부 자극으로부터 피부를 완벽하게 보호합니다.",
+      },
+    ],
+    clinical: {
+      title: "숫자로 증명된 시너지 효과 (Clinical Result)",
+      institute: "한국피부과학연구원 인체적용시험 완료",
+      note: "(소미 에센스 단 1회 사용 임상 데이터 재확인)",
+      headline: null,
+      bullets: [
+        "피부 수분 개선율 243.26% 상승",
+        "피부 탄력 개선율 2.32% 상승",
+        "p-value < 0.001 (최고 등급)",
+      ],
+      afterBullets: [
+        "소미 PDRN 크림은 에센스가 열어준 수분과 앰플이 채워준 탄력을 증발 없이 '잠금'함으로써, 밤새 지속되는 촘촘한 탄력감과 광채를 선사합니다.",
+        "단 한 번의 사용으로 즉각적인 변화를 증명한 소미 뷰티의 데이터를 기반으로, 크림은 그 효과를 지속시켜 당신의 매일 아침을 기적으로 만듭니다.",
+      ],
+    },
+    textureBlock: {
+      title: "피부를 감싸안는 부드럽고 촘촘한 핑크빛 보습 장벽",
+      subtitle: "The Science of Texture",
+      body:
+        "제공된 이미지 속 핑크색 무광 용기에 담긴 크림은, 산죽농원의 청정 에너지를 담은 자연 원료와 PDRN이 만나 빚어낸 영롱한 핑크빛 제형입니다. 끈적임 없이 부드럽게 피부를 감싸안으며, 촘촘한 보습 장벽을 형성합니다.",
+    },
+    recommended: [
+      "소미 에센스와 앰플의 효과를 밤새 증발 없이 유지하고 싶은 분",
+      "복잡한 단계 없이, 크림 하나로 완벽한 탄력/보습 루틴을 마무리하고 싶은 분",
+      "아침에 일어나서도 끈적임 없는 촘촘한 피부 광채를 경험하고 싶은 분",
+      "외부 자극으로 인해 약해진 피부 장벽을 강력하게 보호하고 싶은 분",
+    ],
+    ingredients: {
+      title: "Main Ingredients",
+      intro: "미백, 주름개선 이중 기능성",
+      items: [
+        {
+          title: "아데노신",
+          body: "무너진 주름 사이를 채우고 탄력을 지속적으로 개선",
+        },
+        {
+          title: "나이아신아마이드",
+          body: "칙칙한 피부 톤을 밝고 투명하게 유지",
+        },
+        {
+          title: "세라마이드 & 식물성 스쿠알란",
+          body: "PDRN과 시너지를 내어 피부 보습 장벽 강화 및 외부 자극 보호",
+        },
+      ],
+    },
+    closingLines: [
+      "피부 탄력의 최종 방어막 (The Ultimate Barrier of Skin Elasticity),",
+      "오늘 당신의 탄력 루틴을 소미 PDRN 크림으로 완결하세요.",
+    ],
+    howToUse:
+      "세안 후 소미 에센스와 앰플로 피부를 충분히 적신 뒤, 적당량을 덜어 얼굴 전체에 부드럽게 펴 바릅니다. 가볍게 두드려 완전히 흡수시켜 줍니다. 특히 나노젯 기계와 함께 사용 시 더욱 즉각적이고 극대화된 효과를 경험하실 수 있습니다.",
+  },
+
+  "pdrn-repair-ampoule": {
+    slug: "pdrn-repair-ampoule",
+    seoTitle: "소미 뷰티 PDRN+ 리페어 앰플 | SOMI BEAUTY",
+    seoDescription:
+      "압도적인 농도로 피부의 코어를 재생하다. 초고농축 PDRN 10,000 ppm, Graphene DDS. 소미 에센스의 감동을 앰플로 완성하세요.",
+    title: "PDRN+ Repair Ampoule",
+    volume: "30ml",
+    heroTagline: "압도적인 농도로 피부의 코어(Core)를 재생하다",
+    pageHero: {
+      brandLine: "[소미 뷰티 PDRN+ 리페어 앰플]",
+      quote: "소미 에센스의 감동, 앰플로 완성하세요.",
+    },
+    storyIntro: [
+      "피부 속 깊숙이 수분을 채워주는 소미 에센스로 기초를 다졌다면, 이제는 그 에너지를 피부 코어에 깊숙이 가두고 피부 스스로의 재생력을 극대화할 차례입니다. 소미 PDRN+ 리페어 앰플은 에센스보다 더 고농축된 성분으로 피부 본연의 건강함을 되찾아 드립니다.",
+    ],
+    concentrationBlock: {
+      title: "초(超)고농축 PDRN 10,000 ppm",
+      subtitle: "피부 재생의 핵심, 그 압도적인 수치를 확인하세요.",
+      body:
+        "제공된 이미지 속 앰플에는 인체 DNA 구조와 가장 유사한 저분자 PDRN이 무려 10,000 ppm이나 함유되어 있습니다. 이는 타협하지 않는 소미 뷰티의 프리미엄 철학을 증명하는 숫자입니다. 이 압도적인 농도의 PDRN이 지친 피부의 자생력을 높여, 탄탄한 기초를 다시 세워줍니다.",
+    },
+    coreTechSectionTitle: "소미 뷰티만의 독보적인 기술력 (Core Tech)",
+    heroImage: "/images/bestseller-ampoule.png",
+    cardImage: "/images/bestseller-ampoule.png",
+    categoryLabel: "AMPOULE",
+    coreTech: [
+      {
+        title: "그래핀 약물전달시스템 (Graphene DDS)",
+        body:
+          "에센스에서 증명된 이 차세대 기술은 고농축 PDRN이 증발하지 않고, 피부 진피층의 손상된 세포까지 정밀하게 도달하도록 돕습니다.",
+      },
+      {
+        title: "맑고 투명한 핑크빛 제형",
+        body:
+          "산죽농원의 청정 에너지를 담은 자연 원료와 PDRN이 만나 빚어낸 영롱한 핑크빛 제형입니다. 끈적임 없이 피부에 즉각적으로 흡수되어 깊은 보습감과 재생 영양을 공급합니다.",
+      },
+    ],
+    clinical: {
+      title: "소미 에센스의 기적, 앰플로 완성하다 (Clinical Result)",
+      institute: "한국피부과학연구원 인체적용시험 완료",
+      note: "(소미 에센스 단 1회 사용 임상 데이터 재확인)",
+      headline: null,
+      bullets: [
+        "피부 수분 개선율 243% 상승",
+        "피부 탄력 개선율 2.3% 상승",
+        "p-value < 0.001 (최고 등급)",
+      ],
+      afterBullets: [
+        "소미 PDRN+ 리페어 앰플은 이 강력한 효과에 초고농축 PDRN의 힘을 더해, 피부 장벽을 더 빠르게 재건하고 속탄력을 지속적으로 강화합니다.",
+        "단 한 번의 사용으로 즉각적인 변화를 증명한 소미 뷰티의 데이터를 기반으로, 앰플은 피부 코어 재생에 집중하여 더 깊고 지속적인 아름다움을 선사합니다.",
+      ],
+    },
+    recommended: [
+      "에센스 사용 후 더 강력하고 즉각적인 피부 재생을 원하는 분",
+      "극도로 푸석하고 탄력을 잃은 피부에 즉각적인 '탄력 광'을 원하는 분",
+      "외부 자극으로 인해 약해진 피부 장벽을 빠르게 회복하고 싶은 분",
+      "복잡한 단계 없이, 앰플 하나로 고기능성 스킨케어를 완결하고 싶은 분",
+    ],
+    ingredients: {
+      title: "Main Ingredients",
+      intro: "미백, 주름개선 이중 기능성",
+      items: [
+        {
+          title: "아데노신",
+          body: "무너진 주름 사이를 채우고 탄력을 개선",
+        },
+        {
+          title: "나이아신아마이드",
+          body: "칙칙한 피부 톤을 밝고 투명하게 개선",
+        },
+        {
+          title: "마린 콜라겐 & 펩타이드",
+          body: "PDRN과 시너지를 내어 피부 코어 탄력 강화",
+        },
+      ],
+    },
+    closingLines: [
+      "피부 재생의 핵심 (The Core of Skin Rebirth),",
+      "오늘 당신의 피부에 가장 순수한 고농축 에너지를 선물하세요.",
+    ],
+    howToUse:
+      "세안 후 소미 에센스로 피부 결을 정돈한 뒤, 스포이트를 이용해 앰플을 2-3방울 떨어뜨려 얼굴 전체에 부드럽게 펴 바릅니다. 가볍게 두드려 완전히 흡수시켜 줍니다. 특히 나노젯 기계와 함께 사용 시 더욱 즉각적이고 극대화된 효과를 경험하실 수 있습니다.",
+  },
+
+  "pdrn-lifting-gel": {
+    slug: "pdrn-lifting-gel",
+    seoTitle: "소미 뷰티 PDRN+ 리프팅 겔 | SOMI BEAUTY",
+    seoDescription:
+      "압도적인 리프팅 텐션으로 피부 코어를 Re-setting. PDRN 10,000 ppm, Graphene DDS. 소미 에센스·앰플·크림과 이어지는 완성 루틴.",
+    title: "PDRN+ Lifting Gel",
+    volume: "50ml",
+    heroTagline: "압도적인 리프팅 텐션으로 피부 코어를 Re-setting하다.",
+    /** 히어로 h1: 두 줄 + 살짝 작은 크기 (product-detail.js) */
+    heroTaglineLines: ["압도적인 리프팅 텐션으로", "피부 코어를 Re-setting하다."],
+    heroHeadlineClass: "text-2xl leading-snug md:text-3xl lg:text-[2.125rem]",
+    pageHero: {
+      brandLine: "[소미 뷰티 PDRN+ 리프팅 겔]",
+      quoteLines: ["앰플로 채우고, 크림으로 잠그고,", "겔로 완벽하게 끌어올리세요."],
+      quote: "앰플로 채우고, 크림으로 잠그고, 겔로 완벽하게 끌어올리세요.",
+    },
+    heroMascotImage: "/images/character-somi.png",
+    storyIntro: [
+      "피부 속 깊숙이 영양을 채워주는 소미 에센스와 앰플, 그리고 그 에너지를 잠그는 크림으로 탄력을 다졌다면, 이제는 그 에너지를 완벽한 '리프팅' 효과로 연결할 차례입니다. 소미 PDRN+ 리프팅 겔은 바르는 즉시 피부에 강력한 텐션감을 부여하여 무너진 얼굴 라인을 촘촘하고 매끄럽게 잡아주는 '압도적인 리프팅 솔루션'입니다.",
+    ],
+    coreTechSectionTitle: "바르는 순간 느껴지는 즉각적인 '리프팅 텐션'",
+    coreTechSubtitle: "PDRN x 그래핀 DDS의 혁신적인 만남",
+    heroImage: "/images/bestseller-lifting-gel.png",
+    cardImage: "/images/bestseller-lifting-gel.png",
+    categoryLabel: "SPECIAL",
+    coreTech: [
+      {
+        title: "프리미엄 PDRN 10,000 ppm 고농축 배합",
+        body:
+          "브랜드의 핵심 성분인 저분자 PDRN을 압도적인 농도로 함유하여, 무너진 피부 코어를 즉각적으로 재건하고 탄력을 부여합니다. 지친 피부에 강력한 자생력을 공급합니다.",
+      },
+      {
+        title: "그래핀 DDS (drug delivery system)",
+        body:
+          "꿈의 신소재 그래핀 기술이 적용된 이 리프팅 겔은, 유효 성분이 피부 깊숙이 정밀하게 전달되도록 돕습니다. 또한, 겔이 건조되면서 피부 표면에 미세한 '그래핀 텐션 막'을 형성하여 강력한 리프팅 효과를 시각적, 촉각적으로 즉각 느끼게 합니다.",
+      },
+    ],
+    clinical: {
+      title: "숫자로 증명된 시너지 효과 (Clinical Result)",
+      institute: "한국피부과학연구원 인체적용시험 완료",
+      note: "(소미 에센스 단 1회 사용 임상 데이터 재확인)",
+      headline: null,
+      bullets: [
+        "피부 수분 개선율 243.26% 상승",
+        "피부 탄력 개선율 2.32% 상승",
+        "p-value < 0.001 (최고 등급)",
+      ],
+      afterBullets: [
+        "소미 PDRN+ 리프팅 겔은 기존 제품들이 채워준 수분과 탄력을 기반으로, 즉각적인 '리프팅 텐션'을 더해 피부가 '기억하는' 최적의 탄력 상태로 Re-setting합니다.",
+        "단 한 번의 사용으로 즉각적인 변화를 증명한 소미 뷰티의 데이터를 기반으로, 리프팅 겔은 무너진 탄력 코어를 완벽하게 Re-setting하여 당신의 매일을 기적으로 만듭니다.",
+      ],
+    },
+    howToUseSubtitle: "간편하게 즐기는 홈 에스테틱",
+    usageScienceBlock: {
+      scienceTitle: "The Science of Texture",
+      scienceBody:
+        "제공된 이미지 속 핑크색 튜브 용기에 담긴 리프팅 겔은, 산죽농원의 청정 에너지를 담은 자연 원료와 PDRN이 만나 빚어낸 영롱하고 촘촘한 핑크빛 겔 제형입니다. 피부에 부드럽게 밀착되어, 건조되는 동안 강력한 텐션을 부여합니다.",
+    },
+    howToUseSteps: [
+      "세안 후, 소미 에센스로 피부 결을 정돈합니다.",
+      "튜브를 이용하여 눈가와 입가를 제외한 얼굴 전체에 겔을 팩처럼 부드럽게 펴 바릅니다.",
+      "10~15분 동안 그대로 둡니다. 겔이 완전히 건조되면서 피부가 팽팽해지는 강력한 리프팅 텐션을 경험하실 수 있습니다.",
+      "겔이 완전히 마른 후, 미온수로 깨끗이 씻어냅니다.",
+      "특히 나노젯 기계와 함께 사용 시 더욱 즉각적이고 극대화된 효과를 경험하실 수 있습니다.",
+    ],
+    recommended: [
+      "무너진 얼굴 라인과 이중턱이 고민이신 분",
+      "복합적인 노화 징후(주름, 탄력 저하)로 즉각적인 리프팅 효과를 원하는 분",
+      "소미 PDRN+ 앰플과 크림의 효과를 극대화하여 완벽한 탄력 루틴을 완성하고 싶은 분",
+      "복잡한 시술 없이, 간편하게 집에서 전문적인 리프팅 관리를 받고 싶은 분",
+    ],
+    ingredients: {
+      title: "Main Ingredients",
+      intro: "미백, 주름개선 이중 기능성",
+      items: [
+        {
+          title: "아데노신 & 나이아신아마이드",
+          body: "주름 개선 및 투명한 피부 톤업",
+        },
+        {
+          title: "다중 펩타이드 복합체",
+          body: "PDRN과 시너지를 내어 피부 코어 탄력을 더욱 촘촘하게 강화",
+        },
+        {
+          title: "마린 콜라겐 & 식물성 스쿠알란",
+          body: "강력한 보습 장벽 형성 및 리프팅 후 촉촉함 유지",
+        },
+      ],
+    },
+    closingLines: [
+      "피부 코어를 Re-setting하는 리프팅 텐션 (Re-setting the Core with Lifting Tension),",
+      "오늘 당신의 탄력 루틴을 소미 PDRN+ 리프팅 겔로 완결하세요.",
+    ],
+    howToUse:
+      "세안 후 소미 에센스로 피부 결을 정돈한 뒤, 튜브에 담긴 겔을 눈가와 입가를 제외한 얼굴 전체에 팩처럼 펴 바릅니다. 10~15분 후 건조되면 미온수로 씻어 냅니다. 나노젯 기계와 함께 사용 시 더욱 극대화된 효과를 경험하실 수 있습니다.",
+  },
+
+  "pdrn-daily-toner-pad": {
+    slug: "pdrn-daily-toner-pad",
+    seoTitle: "PDRN Daily Toner Pad | SOMI BEAUTY",
+    seoDescription: "매일 가볍게 닦아내는 토너 패드. 60매.",
+    title: "PDRN Daily Toner Pad",
+    volume: "60매",
+    heroTagline: "매일 가볍게 닦아내는 토너 패드",
+    heroImage: "/images/bestseller-toner-pad.png",
+    cardImage: "/images/bestseller-toner-pad.png",
+    categoryLabel: "SKINCARE",
+    coreTech: [
+      {
+        title: "Tone & Prep",
+        body: "세안 직후 피부 결을 가볍게 정돈하고 다음 단계 케어를 돕습니다.",
+      },
+      {
+        title: "Daily Habit",
+        body: "부담 없는 사용감으로 매일 루틴에 녹아듭니다.",
+      },
+    ],
+    clinical: null,
+    recommended: [
+      "아침·저녁 간단한 토너 단계를 원하는 분",
+      "잔각질·유분 정돈이 필요한 분",
+      "가벼운 패드로 시작하는 루틴을 찾는 분",
+    ],
+    ingredients: {
+      title: "Product Highlights",
+      intro: "데일리 토너 패드",
+      items: [
+        { title: "간편한 사용", body: "패드를 꺼내 얼굴 결을 따라 닦아 냅니다." },
+        { title: "가벼운 마무리", body: "흡수 후 에센스 단계로 이어가세요." },
+      ],
+    },
+    closingLines: ["가장 먼저 시작하는 핑크 루틴,", "소미뷰티의 첫 단계를 경험해 보세요."],
+    howToUse:
+      "세안 후 패드를 꺼내 얼굴 전체를 따라 부드럽게 닦아 낸 뒤, 가볍게 두드려 흡수시켜 줍니다.",
+  },
+};
+
+export function getProduct(slug) {
+  if (!slug) return null;
+  return products[slug] ?? null;
+}
+
+export function listRelatedSlugs(currentSlug, limit = 3) {
+  const keys = Object.keys(products).filter((k) => k !== currentSlug);
+  return keys.slice(0, limit);
+}
+
+/** 카테고리 목록 페이지용 (?cat= 키). 값은 해당 카테고리에 속한 제품 slug 배열 */
+export const shopCategories = {
+  essence: {
+    id: "essence",
+    title: "ESSENCE",
+    subtitle: "맑고 촉촉한 첫 단계 케어",
+    slugs: ["pdrn-essence"],
+  },
+  ampoule: {
+    id: "ampoule",
+    title: "AMPOULE",
+    subtitle: "농축된 핑크 에너지로 채우는 집중 케어",
+    slugs: ["pdrn-repair-ampoule"],
+  },
+  cream: {
+    id: "cream",
+    title: "CREAM",
+    subtitle: "부드럽게 감싸는 편안한 보습",
+    slugs: ["pdrn-cream"],
+  },
+  special: {
+    id: "special",
+    title: "SPECIAL CARE",
+    subtitle: "토너 패드, 리프팅 젤 등",
+    slugs: ["pdrn-daily-toner-pad", "pdrn-lifting-gel"],
+  },
+  skincare: {
+    id: "skincare",
+    title: "SKIN CARE",
+    subtitle: "소미뷰티 데일리 스킨케어 라인",
+    slugs: [
+      "pdrn-essence",
+      "pdrn-cream",
+      "pdrn-repair-ampoule",
+      "pdrn-lifting-gel",
+      "pdrn-daily-toner-pad",
+    ],
+  },
+};
+
+export function getShopCategory(catId) {
+  if (!catId) return null;
+  return shopCategories[catId] ?? null;
+}

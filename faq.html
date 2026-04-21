@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="소미뷰티 자주 묻는 질문." />
+    <meta name="theme-color" content="#f7f2ec" />
+    <title>FAQ | SOMI BEAUTY</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Sans+KR:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html {
+        color-scheme: light;
+        background-color: #f7f2ec;
+        overflow-x: clip;
+      }
+      body {
+        background-color: #f7f2ec;
+        color: #6a555a;
+        overflow-x: clip;
+        min-width: 0;
+        max-width: 100%;
+      }
+    </style>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body class="min-w-0 bg-somi-bg text-somi-text antialiased">
+    <div id="sakura-layer" class="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true"></div>
+    <div class="sticky top-0 z-50 pt-[env(safe-area-inset-top,0px)]">
+      <p
+        class="royal-ribbon py-2 text-center text-[clamp(0.625rem,0.35vw+0.55rem,0.6875rem)] font-medium uppercase tracking-[0.32em] text-somi-text/85 md:tracking-[0.38em]"
+        lang="en"
+      >
+        Maison de SOMI · Royal PDRN Ritual
+      </p>
+      <header
+        class="border-b border-somi-gold/35 bg-somi-ivory/95 shadow-[inset_0_1px_0_0_rgba(221,195,181,0.35)] backdrop-blur-md"
+      >
+      <div class="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 py-3 padding-page-x">
+        <a href="/index.html#bestseller" class="flex items-center gap-2 text-somi-muted transition hover:text-somi-mauve">
+          <span class="sr-only">베스트셀러 제품으로 이동</span>
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z"
+            />
+          </svg>
+          <span class="hidden text-sm md:inline">제품 찾기</span>
+        </a>
+        <a href="/index.html#top" class="group flex flex-col items-center text-center">
+          <span class="font-display text-[clamp(1.25rem,calc(0.65rem+1.8vw),2rem)] tracking-[0.14em] text-somi-text">SOMI BEAUTY</span>
+          <span
+            class="mt-0.5 font-display text-[0.6rem] font-medium uppercase tracking-[0.28em] text-somi-gold md:text-[0.65rem]"
+            lang="en"
+            >Princess Glow · Scientific Care</span
+          >
+        </a>
+        <div class="flex items-center gap-2 md:gap-3">
+          <a
+            href="https://www.instagram.com/somi_beauty_korea/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hidden rounded-full border border-somi-gold/60 bg-white/60 px-3 py-1.5 text-xs text-somi-muted transition hover:border-somi-accent/50 hover:bg-somi-accent-soft/50 md:inline"
+            >SNS</a
+          >
+          <a
+            href="/contact.html"
+            class="hidden rounded-full bg-somi-text px-3 py-1.5 text-xs text-white shadow-sm transition hover:bg-somi-mauve md:inline"
+            >문의</a
+          >
+          <button
+            id="mobile-menu-btn"
+            type="button"
+            class="inline-flex rounded-lg p-2 md:hidden"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <span class="sr-only">메뉴</span>
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <nav class="hidden border-t border-somi-gold/25 bg-somi-bg/40 md:block" aria-label="주요 메뉴">
+        <ul
+          class="mx-auto flex w-full max-w-5xl flex-nowrap items-center justify-center gap-x-8 py-3 text-sm leading-normal text-somi-text padding-page-x"
+        >
+          <li class="flex items-center">
+            <a
+              class="inline-flex items-center border-b-2 border-transparent py-2 transition hover:border-somi-mauve/25 hover:text-somi-mauve"
+              href="/index.html#pink-ritual"
+              >핑크 루틴</a
+            >
+          </li>
+          <li class="flex items-center">
+            <a
+              class="inline-flex items-center border-b-2 border-transparent py-2 transition hover:border-somi-mauve/25 hover:text-somi-mauve"
+              href="/index.html#bestseller"
+              >베스트셀러</a
+            >
+          </li>
+          <li class="flex items-center">
+            <a
+              class="inline-flex items-center border-b-2 border-transparent py-2 transition hover:border-somi-mauve/25 hover:text-somi-mauve"
+              href="/index.html#categories"
+              >스킨케어</a
+            >
+          </li>
+          <li class="group relative flex items-center">
+            <a
+              href="/brand-story.html"
+              class="inline-flex items-center border-b-2 border-transparent py-2 transition hover:border-somi-mauve/25 hover:text-somi-mauve"
+              >브랜드</a
+            >
+            <ul
+              class="invisible absolute left-1/2 top-full z-[60] mt-0 min-w-[12rem] -translate-x-1/2 rounded-xl border border-somi-blush/60 bg-white/95 py-2 opacity-0 shadow-lg transition duration-150 group-hover:visible group-hover:opacity-100"
+              role="list"
+            >
+              <li>
+                <a class="block px-4 py-2 transition hover:bg-somi-blush/40 hover:text-somi-mauve" href="/brand-story.html">브랜드 스토리</a>
+              </li>
+              <li>
+                <a class="block px-4 py-2 transition hover:bg-somi-blush/40 hover:text-somi-mauve" href="/campaign.html">캠페인</a>
+              </li>
+              <li>
+                <a class="block px-4 py-2 transition hover:bg-somi-blush/40 hover:text-somi-mauve" href="/goods.html">굿즈</a>
+              </li>
+              <li>
+                <a class="block px-4 py-2 transition hover:bg-somi-blush/40 hover:text-somi-mauve" href="/community.html">커뮤니티</a>
+              </li>
+              <li>
+                <a class="block px-4 py-2 transition hover:bg-somi-blush/40 hover:text-somi-mauve" href="/sns.html">SNS</a>
+              </li>
+            </ul>
+          </li>
+          <li class="group relative flex items-center">
+            <a
+              href="/faq.html"
+              class="inline-flex items-center border-b-2 border-transparent py-2 transition hover:border-somi-mauve/25 hover:text-somi-mauve"
+              >고객지원</a
+            >
+            <ul
+              class="invisible absolute left-1/2 top-full z-[60] mt-0 min-w-[10rem] -translate-x-1/2 rounded-xl border border-somi-blush/60 bg-white/95 py-2 opacity-0 shadow-lg transition duration-150 group-hover:visible group-hover:opacity-100"
+              role="list"
+            >
+              <li>
+                <a class="block px-4 py-2 transition hover:bg-somi-blush/40 hover:text-somi-mauve" href="/faq.html">FAQ</a>
+              </li>
+              <li>
+                <a class="block px-4 py-2 transition hover:bg-somi-blush/40 hover:text-somi-mauve" href="/contact.html">문의</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div id="mobile-menu" class="hidden border-t border-somi-gold/25 bg-somi-ivory md:hidden" aria-hidden="true">
+        <ul class="flex flex-col gap-3 py-4 text-sm padding-page-x">
+          <li><a class="transition hover:text-somi-mauve" href="/index.html#pink-ritual">핑크 루틴</a></li>
+          <li><a class="transition hover:text-somi-mauve" href="/index.html#bestseller">베스트셀러</a></li>
+          <li><a class="transition hover:text-somi-mauve" href="/index.html#categories">스킨케어</a></li>
+          <li>
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-somi-muted">브랜드</p>
+            <ul class="mt-2 space-y-2 border-l border-somi-blush/60 pl-3 text-somi-text">
+              <li><a class="transition hover:text-somi-mauve" href="/brand-story.html">브랜드 스토리</a></li>
+              <li><a class="transition hover:text-somi-mauve" href="/campaign.html">캠페인</a></li>
+              <li><a class="transition hover:text-somi-mauve" href="/goods.html">굿즈</a></li>
+              <li><a class="transition hover:text-somi-mauve" href="/community.html">커뮤니티</a></li>
+              <li><a class="transition hover:text-somi-mauve" href="/sns.html">SNS</a></li>
+            </ul>
+          </li>
+          <li>
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-somi-muted">고객지원</p>
+            <ul class="mt-2 space-y-2 border-l border-somi-blush/60 pl-3 text-somi-text">
+              <li><a class="transition hover:text-somi-mauve" href="/faq.html">FAQ</a></li>
+              <li><a class="transition hover:text-somi-mauve" href="/contact.html">문의</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    </div>
+    <main id="top" class="relative z-[1] min-w-0">      <section id="faq" class="scroll-mt-24 border-t border-somi-blush/40 bg-white/40 py-[clamp(3rem,6vw,6rem)]">
+        <div class="mx-auto w-full max-w-3xl padding-page-x">
+          <h2 class="reveal text-center font-display text-[clamp(1.35rem,calc(0.85rem+1.8vw),2.25rem)] text-somi-text">FAQ</h2>
+          <p class="reveal mt-2 text-center text-sm text-somi-muted">자주 묻는 질문</p>
+          <dl class="reveal mt-10 space-y-6">
+            <div class="rounded-2xl border border-somi-blush/70 bg-white/80 p-6 shadow-sm">
+              <dt class="text-sm font-semibold text-somi-text">PDRN 라인은 어떤 피부에 맞나요?</dt>
+              <dd class="mt-2 text-sm leading-relaxed text-somi-muted">
+                건조함, 칙칙한 톤, 탄력 고민 등 데일리 케어를 원하는 분들께 추천드려요. 민감 피부는 패치 테스트 후 사용해 주세요.
+              </dd>
+            </div>
+            <div class="rounded-2xl border border-somi-blush/70 bg-white/80 p-6 shadow-sm">
+              <dt class="text-sm font-semibold text-somi-text">에센스와 앰플, 어떻게 다르게 쓰나요?</dt>
+              <dd class="mt-2 text-sm leading-relaxed text-somi-muted">
+                에센스는 매일 가볍게 스며드는 베이스 케어, 앰플은 집중 영양이 필요한 날·부위에 먼저 바르는 식으로 루틴에 맞춰 선택하시면 됩니다.
+              </dd>
+            </div>
+            <div class="rounded-2xl border border-somi-blush/70 bg-white/80 p-6 shadow-sm">
+              <dt class="text-sm font-semibold text-somi-text">구매는 어디서 할 수 있나요?</dt>
+              <dd class="mt-2 text-sm leading-relaxed text-somi-muted">
+                공식 채널·입점처는 준비 중입니다. <a href="/contact.html" class="font-medium text-somi-mauve underline-offset-2 hover:underline">문의 페이지</a> 또는 인스타그램 DM으로 도입·협업 문의를 남겨 주세요.
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+    </main>
+    <footer class="relative z-[1] border-t border-somi-blush/50 bg-white py-[clamp(2.5rem,5vw,5rem)] pb-safe">
+      <div class="mx-auto flex w-full max-w-4xl flex-col items-center gap-8 text-center padding-page-x">
+        <p class="max-w-md text-[11px] leading-relaxed text-somi-muted">
+          이용약관·개인정보처리방침·영상정보처리방침·사이트맵은 공식 오픈 시 게시됩니다.
+        </p>
+        <div class="space-y-1 text-[11px] leading-relaxed text-somi-muted">
+          <p>문의: 인스타그램 <span class="text-somi-text">@somi_beauty_korea</span> DM</p>
+          <p>© SOMI BEAUTY. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176 176" width="176" height="176" role="img" aria-label="SOMI È¤T¸">
+  <defs>
+    <linearGradient id="somi-body" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5dfe6"/>
+      <stop offset="55%" stop-color="#eec4d0"/>
+      <stop offset="100%" stop-color="#e0a8b8"/>
+    </linearGradient>
+    <linearGradient id="somi-blush" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8c9d4"/>
+      <stop offset="100%" stop-color="#e8a0b0"/>
+    </linearGradient>
+  </defs>
+  <!-- soft body -->
+  <ellipse cx="88" cy="98" rx="62" ry="58" fill="url(#somi-body)"/>
+  <!-- ears -->
+  <circle cx="46" cy="52" r="22" fill="url(#somi-body)"/>
+  <circle cx="130" cy="52" r="22" fill="url(#somi-body)"/>
+  <circle cx="46" cy="52" r="10" fill="#f8d0da" opacity="0.85"/>
+  <circle cx="130" cy="52" r="10" fill="#f8d0da" opacity="0.85"/>
+  <!-- face highlight -->
+  <ellipse cx="72" cy="88" rx="18" ry="14" fill="#fff" opacity="0.35"/>
+  <!-- eyes -->
+  <ellipse cx="68" cy="92" rx="7" ry="9" fill="#5c454d"/>
+  <ellipse cx="108" cy="92" rx="7" ry="9" fill="#5c454d"/>
+  <circle cx="70" cy="90" r="2.2" fill="#fff" opacity="0.9"/>
+  <circle cx="110" cy="90" r="2.2" fill="#fff" opacity="0.9"/>
+  <!-- cheeks -->
+  <ellipse cx="52" cy="104" rx="12" ry="8" fill="url(#somi-blush)" opacity="0.55"/>
+  <ellipse cx="124" cy="104" rx="12" ry="8" fill="url(#somi-blush)" opacity="0.55"/>
+  <!-- nose -->
+  <ellipse cx="88" cy="104" rx="5" ry="4" fill="#c97d8f"/>
+  <!-- smile -->
+  <path d="M76 118 Q88 128 100 118" fill="none" stroke="#a06575" stroke-width="3" stroke-linecap="round"/>
+</svg>
