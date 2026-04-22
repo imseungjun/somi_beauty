@@ -1,6 +1,5 @@
-# Pages 사용: https://github.com/imseungjun/somi_beauty/settings/pages
-# → Build and deployment: Source = GitHub Actions (필수, 한 번만 설정)
-# 사이트: https://imseungjun.github.io/somi_beauty/
+# Pages: https://github.com/imseungjun/somi_beauty/settings/pages → Source: GitHub Actions
+# URL: https://imseungjun.github.io/somi_beauty/
 name: Deploy to GitHub Pages
 
 on:
@@ -18,7 +17,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -27,15 +26,24 @@ jobs:
         with:
           node-version: "20"
           cache: npm
-      - name: Install & build
+      - name: Install and build
         run: |
           npm ci
           npm run build
         env:
           VITE_BASE: /somi_beauty/
-      - uses: actions/upload-pages-artifact@v3
+      - name: Upload static files
+        uses: actions/upload-pages-artifact@v3
         with:
           path: dist
-      - id: deploy
-        name: Publish to GitHub Pages
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish
+        id: deployment
         uses: actions/deploy-pages@v4
