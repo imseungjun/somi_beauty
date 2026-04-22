@@ -29,7 +29,7 @@ function renderNotFound() {
       <p class="text-xs font-medium uppercase tracking-[0.2em] text-somi-mauve">SOMI BEAUTY</p>
       <h1 class="mt-4 font-display text-3xl text-somi-text">제품을 찾을 수 없습니다</h1>
       <p class="mt-3 text-sm text-somi-muted">요청하신 제품 페이지가 없거나 주소가 변경되었을 수 있어요.</p>
-      <a href="/index.html#bestseller" class="mt-8 inline-flex rounded-full bg-somi-text px-8 py-3 text-sm text-white transition hover:bg-somi-mauve">베스트셀러로 돌아가기</a>
+      <a href="index.html#bestseller" class="mt-8 inline-flex rounded-full bg-somi-text px-8 py-3 text-sm text-white transition hover:bg-somi-mauve">베스트셀러로 돌아가기</a>
     </section>
   `;
 }
@@ -149,7 +149,7 @@ function renderProductPage(p) {
       const rp = products[slug];
       if (!rp) return "";
       return `
-      <a href="/product.html?slug=${esc(slug)}" class="group flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border border-somi-blush/60 bg-white/80 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+      <a href="product.html?slug=${esc(slug)}" class="group flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border border-somi-blush/60 bg-white/80 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
         <div class="relative flex aspect-[4/3] w-full shrink-0 items-center justify-center overflow-hidden bg-gradient-to-br from-somi-blush to-somi-ivory p-3 sm:p-4">
           <img src="${esc(rp.cardImage)}" alt="" class="h-auto w-auto max-h-full max-w-full object-contain object-center" loading="lazy" decoding="async" />
         </div>
@@ -189,9 +189,9 @@ function renderProductPage(p) {
             <p class="${HERO_QUOTE}">${pageHeroQuoteHtml}</p>
             <p class="mt-3 text-sm text-somi-muted">${esc(p.volume)}</p>
             <div class="mt-8 flex flex-wrap gap-3">
-              <a href="/contact.html" class="rounded-full bg-somi-text px-6 py-3 text-sm text-white transition hover:bg-somi-mauve">문의하기</a>
+              <a href="contact.html" class="rounded-full bg-somi-text px-6 py-3 text-sm text-white transition hover:bg-somi-mauve">문의하기</a>
               <a href="https://www.instagram.com/somi_beauty_korea/" target="_blank" rel="noopener noreferrer" class="rounded-full border border-somi-pink bg-white/80 px-6 py-3 text-sm text-somi-text transition hover:bg-somi-blush/70">인스타그램</a>
-              <a href="/index.html#bestseller" class="rounded-full border border-somi-mauve/30 px-6 py-3 text-sm text-somi-text transition hover:bg-somi-blush/50">베스트셀러</a>
+              <a href="index.html#bestseller" class="rounded-full border border-somi-mauve/30 px-6 py-3 text-sm text-somi-text transition hover:bg-somi-blush/50">베스트셀러</a>
             </div>
           </div>`
     : `
@@ -202,9 +202,9 @@ function renderProductPage(p) {
             </h1>
             <p class="${HERO_TAGLINE}">${esc(p.heroTagline)}</p>
             <div class="mt-8 flex flex-wrap gap-3">
-              <a href="/contact.html" class="rounded-full bg-somi-text px-6 py-3 text-sm text-white transition hover:bg-somi-mauve">문의하기</a>
+              <a href="contact.html" class="rounded-full bg-somi-text px-6 py-3 text-sm text-white transition hover:bg-somi-mauve">문의하기</a>
               <a href="https://www.instagram.com/somi_beauty_korea/" target="_blank" rel="noopener noreferrer" class="rounded-full border border-somi-pink bg-white/80 px-6 py-3 text-sm text-somi-text transition hover:bg-somi-blush/70">인스타그램</a>
-              <a href="/index.html#bestseller" class="rounded-full border border-somi-mauve/30 px-6 py-3 text-sm text-somi-text transition hover:bg-somi-blush/50">베스트셀러</a>
+              <a href="index.html#bestseller" class="rounded-full border border-somi-mauve/30 px-6 py-3 text-sm text-somi-text transition hover:bg-somi-blush/50">베스트셀러</a>
             </div>
           </div>`;
 

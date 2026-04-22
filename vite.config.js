@@ -5,7 +5,17 @@ import tailwindcss from "@tailwindcss/vite";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+// GitHub Pages(프로젝트 사이트)는 VITE_BASE=/repo이름/ 로 빌드. Vercel·로컬은 기본 "/".
+const rawBase = process.env.VITE_BASE;
+const base =
+  rawBase === undefined || rawBase === ""
+    ? "/"
+    : rawBase === "/"
+      ? "/"
+      : `/${String(rawBase).replace(/^\/|\/$/g, "")}/`;
+
 export default defineConfig({
+  base,
   plugins: [tailwindcss()],
   build: {
     rollupOptions: {

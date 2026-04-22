@@ -14,7 +14,7 @@ function renderNotFound() {
       <p class="text-xs font-medium uppercase tracking-[0.2em] text-somi-mauve">SOMI BEAUTY</p>
       <h1 class="mt-4 font-display text-3xl text-somi-text">카테고리를 찾을 수 없습니다</h1>
       <p class="mt-3 text-sm text-somi-muted">주소를 확인하거나 홈으로 돌아가 주세요.</p>
-      <a href="/index.html" class="mt-8 inline-flex rounded-full bg-somi-text px-8 py-3 text-sm text-white transition hover:bg-somi-mauve">홈으로</a>
+      <a href="index.html" class="mt-8 inline-flex rounded-full bg-somi-text px-8 py-3 text-sm text-white transition hover:bg-somi-mauve">홈으로</a>
     </section>
   `;
 }
@@ -67,7 +67,7 @@ function renderCategory(cat) {
         <h1 class="mt-4 font-display text-4xl tracking-[0.12em] text-somi-text md:text-5xl">${esc(cat.title)}</h1>
         <p class="mt-4 text-sm leading-relaxed text-somi-muted">${esc(cat.subtitle)}</p>
         <p class="mt-8 text-center text-sm text-somi-muted">
-          <a href="/index.html#categories" class="inline-flex text-somi-text underline-offset-4 transition hover:text-somi-mauve hover:underline">← 카테고리로 돌아가기</a>
+          <a href="index.html#categories" class="inline-flex text-somi-text underline-offset-4 transition hover:text-somi-mauve hover:underline">← 카테고리로 돌아가기</a>
         </p>
       </div>
     </div>

@@ -1,3 +1,4 @@
+import { assetUrl } from "./asset-url.js";
 /**
  * 제품 상세 페이지 데이터. slug는 URL ?slug= 값과 일치합니다.
  */
@@ -10,9 +11,9 @@ export const products = {
     title: "소미뷰티 올인원 PDRN 에센스",
     volume: "50ml",
     heroTagline: "단 한 번의 사용으로 증명되는 압도적인 탄력과 수분 에너지",
-    heroImage: "/images/product-essence-hero.png",
-    fallbackHeroImage: "/images/bestseller-essence.png",
-    cardImage: "/images/bestseller-essence.png",
+    heroImage: assetUrl("/images/product-essence-hero.png"),
+    fallbackHeroImage: assetUrl("/images/bestseller-essence.png"),
+    cardImage: assetUrl("/images/bestseller-essence.png"),
     categoryLabel: "ESSENCE",
     coreTech: [
       {
@@ -92,8 +93,8 @@ export const products = {
     ],
     coreTechSectionTitle: "PDRN x 그래핀 DDS의 더블 액션",
     coreTechSubtitle: "피부 코어를 촘촘하게 감싸는 강력한 보습 막",
-    heroImage: "/images/bestseller-cream.png",
-    cardImage: "/images/bestseller-cream.png",
+    heroImage: assetUrl("/images/bestseller-cream.png"),
+    cardImage: assetUrl("/images/bestseller-cream.png"),
     categoryLabel: "CREAM",
     coreTech: [
       {
@@ -182,8 +183,8 @@ export const products = {
         "제공된 이미지 속 앰플에는 인체 DNA 구조와 가장 유사한 저분자 PDRN이 무려 10,000 ppm이나 함유되어 있습니다. 이는 타협하지 않는 소미 뷰티의 프리미엄 철학을 증명하는 숫자입니다. 이 압도적인 농도의 PDRN이 지친 피부의 자생력을 높여, 탄탄한 기초를 다시 세워줍니다.",
     },
     coreTechSectionTitle: "소미 뷰티만의 독보적인 기술력 (Core Tech)",
-    heroImage: "/images/bestseller-ampoule.png",
-    cardImage: "/images/bestseller-ampoule.png",
+    heroImage: assetUrl("/images/bestseller-ampoule.png"),
+    cardImage: assetUrl("/images/bestseller-ampoule.png"),
     categoryLabel: "AMPOULE",
     coreTech: [
       {
@@ -258,14 +259,14 @@ export const products = {
       quoteLines: ["앰플로 채우고, 크림으로 잠그고,", "겔로 완벽하게 끌어올리세요."],
       quote: "앰플로 채우고, 크림으로 잠그고, 겔로 완벽하게 끌어올리세요.",
     },
-    heroMascotImage: "/images/character-somi.png",
+    heroMascotImage: assetUrl("/images/character-somi.png"),
     storyIntro: [
       "피부 속 깊숙이 영양을 채워주는 소미 에센스와 앰플, 그리고 그 에너지를 잠그는 크림으로 탄력을 다졌다면, 이제는 그 에너지를 완벽한 '리프팅' 효과로 연결할 차례입니다. 소미 PDRN+ 리프팅 겔은 바르는 즉시 피부에 강력한 텐션감을 부여하여 무너진 얼굴 라인을 촘촘하고 매끄럽게 잡아주는 '압도적인 리프팅 솔루션'입니다.",
     ],
     coreTechSectionTitle: "바르는 순간 느껴지는 즉각적인 '리프팅 텐션'",
     coreTechSubtitle: "PDRN x 그래핀 DDS의 혁신적인 만남",
-    heroImage: "/images/bestseller-lifting-gel.png",
-    cardImage: "/images/bestseller-lifting-gel.png",
+    heroImage: assetUrl("/images/bestseller-lifting-gel.png"),
+    cardImage: assetUrl("/images/bestseller-lifting-gel.png"),
     categoryLabel: "SPECIAL",
     coreTech: [
       {
@@ -345,8 +346,8 @@ export const products = {
     title: "PDRN Daily Toner Pad",
     volume: "60매",
     heroTagline: "매일 가볍게 닦아내는 토너 패드",
-    heroImage: "/images/bestseller-toner-pad.png",
-    cardImage: "/images/bestseller-toner-pad.png",
+    heroImage: assetUrl("/images/bestseller-toner-pad.png"),
+    cardImage: assetUrl("/images/bestseller-toner-pad.png"),
     categoryLabel: "SKINCARE",
     coreTech: [
       {

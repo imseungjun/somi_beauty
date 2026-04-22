@@ -1,3 +1,4 @@
+import { assetUrl } from "./asset-url.js";
 import { initInstagramFeed } from "./instagram-feed.js";
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -380,7 +381,7 @@ if (bestsellerMascotImg) {
     img.dataset.somiCharFallback = "1";
     const src = img.getAttribute("src") || "";
     const trySvg = src.includes("character-somi.png");
-    img.src = trySvg ? "/images/character-somi.svg" : "/images/character-somi.png";
+    img.src = trySvg ? assetUrl("/images/character-somi.svg") : assetUrl("/images/character-somi.png");
   });
 }
 
