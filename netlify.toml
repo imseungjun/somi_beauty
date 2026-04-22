@@ -1,0 +1,4 @@
+# Netlify: 저장소 연결 시 빌드·배포 (또는 Netlify UI에서 "Deploy manually" → dist 폴더)
+[build]
+  command = "npm run build"
+  publish = "dist"

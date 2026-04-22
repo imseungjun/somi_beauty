@@ -127,103 +127,114 @@ const bestsellerStage = document.getElementById("bestseller-stage");
 const bestsellerMascot = document.getElementById("bestseller-mascot");
 const bestsellerMascotImg = bestsellerMascot?.querySelector(".bestseller-mascot-img");
 
-let mascotMoveTimer = 0;
-let mascotJumpTimer = 0;
-let mascotCurrentIndex = 0;
-/** IO 첫 콜백 전까지 true — 베스트셀러가 보이기 전 타이머가 돌지 않도록 */
+/** IO·스크롤: 섹션이 뷰포트 밖 */
 let mascotPaused = true;
+/** 베스트셀러 섹션 안에서 포인터가 움직이는 중 */
+let mascotPointerInBestseller = false;
+let mascotRafId = 0;
+let mascotPosX = 0;
+let mascotPosY = 0;
+let mascotTargetX = 0;
+let mascotTargetY = 0;
+let lastMascotClientX = 0;
+let lastMascotClientY = 0;
+/** 섹션에 첫 진입 시 0,0에서 끌려오는 느낌 방지 */
+let mascotFollowPrimed = false;
 
-function getVisibleProductCards() {
-  if (!bestsellerStage) return [];
-  return Array.from(bestsellerStage.querySelectorAll("article[data-product-category]")).filter(
-    (el) => !el.classList.contains("hidden"),
-  );
-}
-
-function buildMascotTargets() {
-  if (!bestsellerStage) return [];
-  const stageRect = bestsellerStage.getBoundingClientRect();
-  if (stageRect.width < 1 || stageRect.height < 1) return [];
-
-  const isMobile = window.innerWidth < 768;
-  const cards = getVisibleProductCards();
-  const points = [];
-
-  for (const card of cards) {
-    const visual =
-      card.querySelector("a.relative.aspect-square") ||
-      card.querySelector("a.aspect-square") ||
-      card.querySelector(".relative.aspect-square");
-    if (!visual) continue;
-
-    const rect = visual.getBoundingClientRect();
-    const left = rect.left - stageRect.left;
-    const top = rect.top - stageRect.top;
-    const w = rect.width;
-    const h = rect.height;
-
-    const triplet = [
-      { x: left + w * 0.22, y: top + h * 0.2 },
-      { x: left + w * 0.78, y: top + h * 0.25 },
-      { x: left + w * 0.2, y: top + h * 0.72 },
-    ];
-    points.push(...(isMobile ? triplet.slice(0, 2) : triplet));
+function cancelMascotFollowRaf() {
+  if (mascotRafId) {
+    window.cancelAnimationFrame(mascotRafId);
+    mascotRafId = 0;
   }
-
-  return points;
 }
 
-function clearMascotTimers() {
-  window.clearTimeout(mascotMoveTimer);
-  window.clearTimeout(mascotJumpTimer);
+function clampMascotInStage(nx, ny) {
+  if (!bestsellerStage) return { x: nx, y: ny };
+  const w = bestsellerStage.clientWidth;
+  const h = bestsellerStage.clientHeight;
+  if (w < 2 || h < 2) return { x: nx, y: ny };
+  const m = 52;
+  return {
+    x: Math.min(Math.max(m, nx), w - m),
+    y: Math.min(Math.max(m, ny), h - m),
+  };
 }
 
-function scheduleMascotStep() {
-  clearMascotTimers();
+/** 마스코트 ‘갈 위치’ = 포인터보다 아래·오른쪽으로 둬서 커서에 겹치지 않게 (스테이지 로컬 px) */
+const MASCOT_FOLLOW_OFFSET_X = 92;
+const MASCOT_FOLLOW_OFFSET_Y = 78;
+/** 낮을수록 더 천천히 당겨짐(관성 느낌) */
+const MASCOT_FOLLOW_LERP = 0.085;
 
-  if (reduceMotion || !bestsellerMascot || !bestsellerMascotImg || mascotPaused) {
+function setMascotTargetFromClient(clientX, clientY) {
+  if (!bestsellerStage) return;
+  const st = bestsellerStage.getBoundingClientRect();
+  const rawX = clientX - st.left + MASCOT_FOLLOW_OFFSET_X;
+  const rawY = clientY - st.top + MASCOT_FOLLOW_OFFSET_Y;
+  const c = clampMascotInStage(rawX, rawY);
+  mascotTargetX = c.x;
+  mascotTargetY = c.y;
+  lastMascotClientX = clientX;
+  lastMascotClientY = clientY;
+}
+
+function runMascotFollowLoop() {
+  if (!bestsellerMascot || reduceMotion || mascotPaused || !mascotPointerInBestseller) {
+    mascotRafId = 0;
     return;
   }
-
-  const targets = buildMascotTargets();
-  if (!targets.length) {
-    bestsellerMascot.classList.remove("is-active");
-    return;
-  }
-
-  if (mascotCurrentIndex >= targets.length) {
-    mascotCurrentIndex = 0;
-  }
-
-  const t = targets[mascotCurrentIndex];
-  bestsellerMascot.style.left = `${t.x}px`;
-  bestsellerMascot.style.top = `${t.y}px`;
+  const k = MASCOT_FOLLOW_LERP;
+  mascotPosX += (mascotTargetX - mascotPosX) * k;
+  mascotPosY += (mascotTargetY - mascotPosY) * k;
+  bestsellerMascot.style.left = `${mascotPosX}px`;
+  bestsellerMascot.style.top = `${mascotPosY}px`;
   bestsellerMascot.classList.add("is-active");
+  mascotRafId = window.requestAnimationFrame(runMascotFollowLoop);
+}
 
-  mascotJumpTimer = window.setTimeout(() => {
-    if (Math.random() > 0.45) {
-      bestsellerMascotImg.classList.add("is-jumping");
-      window.setTimeout(() => {
-        bestsellerMascotImg.classList.remove("is-jumping");
-      }, 900);
-    }
-  }, 2400 + Math.random() * 1000);
+function startMascotFollowIfNeeded() {
+  if (mascotRafId) return;
+  if (reduceMotion || mascotPaused || !mascotPointerInBestseller) return;
+  mascotRafId = window.requestAnimationFrame(runMascotFollowLoop);
+}
 
-  mascotMoveTimer = window.setTimeout(() => {
-    mascotCurrentIndex = (mascotCurrentIndex + 1) % targets.length;
-    scheduleMascotStep();
-  }, 4600 + Math.random() * 1600);
+function onBestsellerPointerMove(e) {
+  if (reduceMotion || !bestsellerMascot || !bestsellerStage) return;
+  if (mascotPaused) return;
+  setMascotTargetFromClient(e.clientX, e.clientY);
+  mascotPointerInBestseller = true;
+  if (!mascotFollowPrimed) {
+    mascotPosX = mascotTargetX;
+    mascotPosY = mascotTargetY;
+    bestsellerMascot.style.left = `${mascotPosX}px`;
+    bestsellerMascot.style.top = `${mascotPosY}px`;
+    bestsellerMascot.classList.add("is-active");
+    mascotFollowPrimed = true;
+  }
+  startMascotFollowIfNeeded();
+}
+
+function onBestsellerPointerLeave() {
+  mascotPointerInBestseller = false;
+  mascotFollowPrimed = false;
+  cancelMascotFollowRaf();
+  bestsellerMascot?.classList.remove("is-active");
 }
 
 function refreshMascot() {
   if (reduceMotion || !bestsellerMascot) return;
-  mascotCurrentIndex = 0;
-  clearMascotTimers();
   if (mascotPaused) {
-    bestsellerMascot.classList.remove("is-active");
+    cancelMascotFollowRaf();
+    onBestsellerPointerLeave();
     return;
   }
-  scheduleMascotStep();
+  if (mascotPointerInBestseller && mascotFollowPrimed) {
+    setMascotTargetFromClient(lastMascotClientX, lastMascotClientY);
+    mascotPosX = mascotTargetX;
+    mascotPosY = mascotTargetY;
+    bestsellerMascot.style.left = `${mascotPosX}px`;
+    bestsellerMascot.style.top = `${mascotPosY}px`;
+  }
 }
 
 function getTabElements() {
@@ -304,6 +315,12 @@ if (tablist) {
 
 setActiveTab("all");
 
+if (bestsellerSection && !reduceMotion) {
+  bestsellerSection.addEventListener("pointerenter", onBestsellerPointerMove, { passive: true });
+  bestsellerSection.addEventListener("pointermove", onBestsellerPointerMove, { passive: true });
+  bestsellerSection.addEventListener("pointerleave", onBestsellerPointerLeave, { passive: true });
+}
+
 function knockBestsellerMascot(ev) {
   if (reduceMotion || !bestsellerMascot || !bestsellerMascot.classList.contains("is-active")) return;
 
@@ -322,7 +339,7 @@ function knockBestsellerMascot(ev) {
     ky = (Math.random() - 0.5) * 40;
   }
 
-  clearMascotTimers();
+  cancelMascotFollowRaf();
   bestsellerMascot.classList.add("is-knock-impulse");
   bestsellerMascot.style.transform = `translate(calc(-50% + ${kx}px), calc(-50% + ${ky}px))`;
 
@@ -332,7 +349,9 @@ function knockBestsellerMascot(ev) {
       bestsellerMascot.style.transform = "translate(-50%, -50%)";
       window.setTimeout(() => {
         bestsellerMascot.style.transform = "";
-        if (!mascotPaused) scheduleMascotStep();
+        if (!mascotPaused && mascotPointerInBestseller) {
+          startMascotFollowIfNeeded();
+        }
       }, 520);
     });
   });
@@ -355,7 +374,7 @@ if (bestsellerMascotImg) {
     const img = bestsellerMascotImg;
     if (img.dataset.somiCharFallback === "1") {
       if (bestsellerMascot) bestsellerMascot.style.display = "none";
-      clearMascotTimers();
+      cancelMascotFollowRaf();
       return;
     }
     img.dataset.somiCharFallback = "1";
@@ -380,7 +399,9 @@ if (bestsellerSection && !reduceMotion) {
       for (const entry of entries) {
         mascotPaused = !entry.isIntersecting;
         if (mascotPaused) {
-          clearMascotTimers();
+          cancelMascotFollowRaf();
+          mascotPointerInBestseller = false;
+          mascotFollowPrimed = false;
           bestsellerMascot?.classList.remove("is-active");
         } else {
           refreshMascot();
@@ -463,7 +484,7 @@ if (revealEls.length && "IntersectionObserver" in window) {
         }
       });
     },
-    { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
+    { rootMargin: "0px 0px 4% 0px", threshold: 0.01 },
   );
   revealEls.forEach((el) => io.observe(el));
 } else {

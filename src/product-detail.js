@@ -2,6 +2,19 @@ import { getProduct, listRelatedSlugs, products } from "./product-data.js";
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+/** 올인원 PDRN 에센스 히어로 기준: 본문 타이틀·서브 비율·그리드(텍스트~60%) */
+const HERO_H1 = [
+  "min-w-0 max-w-full font-display text-xl text-somi-text",
+  "sm:text-[clamp(1.2rem,0.45rem+1.9vw,2.1rem)]",
+  "md:text-[clamp(1.35rem,0.7rem+1.2vw,2.1rem)]",
+  "lg:text-[clamp(1.4rem,0.6rem+1.25vw,2.2rem)]",
+].join(" ");
+/** 에센스: 제목 한 줄(올인원 히어로 기준) */
+const HERO_H1_ONELINE = `${HERO_H1} leading-tight md:whitespace-nowrap`;
+const HERO_TAGLINE = "mt-4 max-w-md text-base leading-relaxed text-somi-muted md:text-lg";
+const HERO_QUOTE = "mt-4 max-w-md font-display text-base italic leading-relaxed text-somi-mauve/95 md:text-lg";
+const HERO_GRID = "md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]";
+
 function esc(s) {
   return String(s)
     .replace(/&/g, "&amp;")
@@ -136,11 +149,11 @@ function renderProductPage(p) {
       const rp = products[slug];
       if (!rp) return "";
       return `
-      <a href="/product.html?slug=${esc(slug)}" class="group flex flex-col overflow-hidden rounded-2xl border border-somi-blush/60 bg-white/80 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-        <div class="relative flex aspect-[4/3] items-center justify-center bg-gradient-to-br from-somi-blush to-somi-ivory p-4">
-          <img src="${esc(rp.cardImage)}" alt="" class="h-full max-h-[85%] w-auto object-contain" loading="lazy" decoding="async" />
+      <a href="/product.html?slug=${esc(slug)}" class="group flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border border-somi-blush/60 bg-white/80 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+        <div class="relative flex aspect-[4/3] w-full shrink-0 items-center justify-center overflow-hidden bg-gradient-to-br from-somi-blush to-somi-ivory p-3 sm:p-4">
+          <img src="${esc(rp.cardImage)}" alt="" class="h-auto w-auto max-h-full max-w-full object-contain object-center" loading="lazy" decoding="async" />
         </div>
-        <div class="border-t border-somi-blush/50 p-4">
+        <div class="min-h-0 border-t border-somi-blush/50 p-4">
           <p class="text-sm font-medium text-somi-text group-hover:text-somi-mauve">${esc(rp.title)}</p>
           <p class="mt-1 text-xs text-somi-muted">${esc(rp.heroTagline)}</p>
         </div>
@@ -169,11 +182,11 @@ function renderProductPage(p) {
     ? `
           <div>
             <p class="text-xs font-medium uppercase tracking-[0.25em] text-somi-mauve">${esc(p.categoryLabel)}</p>
-            <p class="mt-3 font-display text-lg text-somi-text md:text-xl">${esc(p.pageHero.brandLine)}</p>
-            <h1 class="mt-4 font-display leading-tight text-somi-text ${p.heroHeadlineClass ?? "text-3xl md:text-4xl lg:text-[2.65rem]"}">
+            <p class="mt-3 font-display text-sm text-somi-text md:text-base">${esc(p.pageHero.brandLine)}</p>
+            <h1 class="mt-3 ${HERO_H1} leading-snug sm:leading-tight [text-wrap:balance]">
               ${heroHeadlineHtml}
             </h1>
-            <p class="mt-5 max-w-xl font-display text-xl italic leading-snug text-somi-mauve/95 md:text-2xl">${pageHeroQuoteHtml}</p>
+            <p class="${HERO_QUOTE}">${pageHeroQuoteHtml}</p>
             <p class="mt-3 text-sm text-somi-muted">${esc(p.volume)}</p>
             <div class="mt-8 flex flex-wrap gap-3">
               <a href="/contact.html" class="rounded-full bg-somi-text px-6 py-3 text-sm text-white transition hover:bg-somi-mauve">문의하기</a>
@@ -184,10 +197,10 @@ function renderProductPage(p) {
     : `
           <div>
             <p class="text-xs font-medium uppercase tracking-[0.25em] text-somi-mauve">${esc(p.categoryLabel)}</p>
-            <h1 class="mt-3 font-display text-3xl leading-tight text-somi-text md:text-4xl lg:text-[2.75rem]">
-              ${esc(p.title)} <span class="text-lg font-normal text-somi-muted md:text-xl">(${esc(p.volume)})</span>
+            <h1 class="mt-3 ${HERO_H1_ONELINE}">
+              ${esc(p.title)} <span class="text-[0.9em] font-normal text-somi-muted">(${esc(p.volume)})</span>
             </h1>
-            <p class="mt-4 max-w-md text-base leading-relaxed text-somi-muted md:text-lg">${esc(p.heroTagline)}</p>
+            <p class="${HERO_TAGLINE}">${esc(p.heroTagline)}</p>
             <div class="mt-8 flex flex-wrap gap-3">
               <a href="/contact.html" class="rounded-full bg-somi-text px-6 py-3 text-sm text-white transition hover:bg-somi-mauve">문의하기</a>
               <a href="https://www.instagram.com/somi_beauty_korea/" target="_blank" rel="noopener noreferrer" class="rounded-full border border-somi-pink bg-white/80 px-6 py-3 text-sm text-somi-text transition hover:bg-somi-blush/70">인스타그램</a>
@@ -198,7 +211,9 @@ function renderProductPage(p) {
   const heroTextBlock = p.heroMascotImage
     ? `
       <div class="flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-6">
-        <img src="${esc(p.heroMascotImage)}" alt="" width="160" height="170" class="pointer-events-none w-28 shrink-0 object-contain drop-shadow-[0_10px_28px_rgba(110,89,97,0.22)] sm:w-36" loading="eager" decoding="async" aria-hidden="true" />
+        <div class="pointer-events-none shrink-0 rounded-2xl bg-gradient-to-b from-white to-somi-ivory/85 p-1.5 shadow-sm ring-1 ring-somi-blush/30">
+          <img src="${esc(p.heroMascotImage)}" alt="" width="160" height="170" class="pointer-events-none w-28 object-contain opacity-100 [filter:drop-shadow(0_8px_20px_rgba(110,89,97,0.28))] sm:w-36" loading="eager" decoding="async" aria-hidden="true" />
+        </div>
         <div class="min-w-0 flex-1">${heroTextInner}</div>
       </div>`
     : heroTextInner;
@@ -210,7 +225,7 @@ function renderProductPage(p) {
     <article>
       <section class="relative overflow-hidden border-b border-somi-blush/50">
         <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-somi-pink/35 via-somi-bg to-somi-ivory"></div>
-        <div class="relative mx-auto grid min-w-0 max-w-7xl gap-10 padding-page-x py-14 md:grid-cols-2 md:items-center md:py-20">
+        <div class="relative mx-auto grid min-w-0 max-w-7xl gap-10 padding-page-x py-14 md:items-center md:gap-12 md:py-20 ${HERO_GRID}">
           <div class="min-w-0">${heroTextBlock}</div>
           <div class="relative mx-auto min-w-0 w-full max-w-md">
             <div class="overflow-hidden rounded-2xl bg-gradient-to-br from-somi-blush via-somi-pink/40 to-somi-ivory shadow-lg shadow-somi-rose/15">

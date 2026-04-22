@@ -23,7 +23,7 @@
 }
 
 @layer base {
-  /* 창 너비·줌에 맞춰 rem 기준 살짝 유동 (본문·버튼 등 전반) */
+  /* 창 너비·줌에 맞춰 rem 기준 살짝 유동 (본문·버튼 등 전반). 캡션·푸터는 12px 미만을 피함 */
   html {
     scroll-behavior: smooth;
     color-scheme: light;
@@ -31,7 +31,7 @@
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     overflow-x: clip;
-    font-size: clamp(14px, 0.28vw + 13.2px, 18px);
+    font-size: clamp(15px, 0.3vw + 13.4px, 18px);
   }
   body {
     font-family: var(--font-family-sans);
@@ -251,19 +251,13 @@
   opacity: 0;
   visibility: hidden;
   background: transparent;
-  transition:
-    left 2.4s ease-in-out,
-    top 2.4s ease-in-out,
-    opacity 0.45s ease,
-    transform 0.5s cubic-bezier(0.33, 1.45, 0.52, 1);
+  isolation: isolate;
+  /* left/top은 JS로 매 프레임 갱신 — transition 없음 */
+  transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.33, 1.45, 0.52, 1);
 }
 
 .bestseller-mascot.is-knock-impulse {
-  transition:
-    left 2.4s ease-in-out,
-    top 2.4s ease-in-out,
-    opacity 0.45s ease,
-    transform 0.12s ease-out;
+  transition: opacity 0.35s ease, transform 0.12s ease-out;
 }
 
 .bestseller-mascot.is-active {
@@ -278,13 +272,18 @@
 }
 
 .bestseller-mascot-img {
+  position: relative;
+  z-index: 1;
   display: block;
   width: 100px;
   height: auto;
   user-select: none;
   background: transparent;
   object-fit: contain;
-  filter: drop-shadow(0 10px 20px rgba(184, 137, 149, 0.22));
+  mix-blend-mode: normal;
+  opacity: 1;
+  /* contrast/brightness는 반투명 픽셀에서 '유리처럼' 보이게 할 수 있어 그림자만 사용 */
+  filter: drop-shadow(0 10px 22px rgba(110, 89, 97, 0.32));
 }
 
 .bestseller-mascot.is-active .bestseller-mascot-img:not(.is-jumping) {
