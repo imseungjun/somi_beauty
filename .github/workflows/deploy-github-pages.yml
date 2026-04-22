@@ -1,10 +1,12 @@
-# GitHub 리포지토리 설정 → Pages → Source: GitHub Actions
-# 사이트 URL: https://imseungjun.github.io/somi_beauty/  (리포 이름과 VITE_BASE가 같아야 함)
+# Pages 사용: https://github.com/imseungjun/somi_beauty/settings/pages
+# → Build and deployment: Source = GitHub Actions (필수, 한 번만 설정)
+# 사이트: https://imseungjun.github.io/somi_beauty/
 name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -18,22 +20,22 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: npm
-      - run: npm ci
-      - name: Build (base path = /somi_beauty/)
-        run: npm run build
+      - name: Install & build
+        run: |
+          npm ci
+          npm run build
         env:
           VITE_BASE: /somi_beauty/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
       - id: deploy
+        name: Publish to GitHub Pages
         uses: actions/deploy-pages@v4
